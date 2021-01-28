@@ -102,7 +102,7 @@ int main(void)
   MX_DMA_Init();
   MX_I2S2_Init();
   /* USER CODE BEGIN 2 */
-
+  process_init();
   HAL_I2SEx_TransmitReceive_DMA(&hi2s2, tx_buf, rx_buf, 4);
 
   /* USER CODE END 2 */
