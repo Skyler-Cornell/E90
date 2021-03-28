@@ -6,6 +6,7 @@
  */
 
 #include "audio_process.h"
+
 #include <math.h>
 
 /*
@@ -28,9 +29,10 @@ void process_init()
  */
 void process(int *left_in, int *right_in, int *left_out, int *right_out)
 {
+     HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
 
-  *right_out = *right_in;
-  *left_out = *left_in;
+     *right_out = *right_in;
+     *left_out = *left_in;
 
 }
 
