@@ -23,4 +23,6 @@ typedef struct {
 }biquad_t;
 
 void compute_BPF_coeff(biquad_t *bq, float w0, float Q);
+void compute_LPF_coeff(biquad_t *bq, float w0, float Q);
+
 void compute_biquad(biquad_t *bq, float *in, float *out);

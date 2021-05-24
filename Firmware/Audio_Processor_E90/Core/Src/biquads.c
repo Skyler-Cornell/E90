@@ -9,6 +9,21 @@
 #include <math.h>
 #include <stdint.h>
 
+void compute_LPF_coeff(biquad_t *bq, float w0, float Q){
+
+  float one_minus_cosw0 = 1-cos(w0);
+  float alpha = sin(w0)/(2*Q);
+
+  bq->b0 = one_minus_cosw0/2;
+  bq->b1 = one_minus_cosw0;
+  bq->b2 = one_minus_cosw0/2;
+
+  bq->a0 = 1+alpha;
+  bq->a1 = -2*cos(w0);
+  bq->a2 = 1-alpha;
+
+}
+
 void compute_BPF_coeff(biquad_t *bq, float w0, float Q){
   float sinw0_over2 = sin(w0)/2;
   float alpha = sinw0_over2/Q;;
@@ -20,7 +35,6 @@ void compute_BPF_coeff(biquad_t *bq, float w0, float Q){
   bq->a0 = 1+alpha;
   bq->a1 = -2*cos(w0);
   bq->a2 = 1-alpha;
-
 
 }
 
